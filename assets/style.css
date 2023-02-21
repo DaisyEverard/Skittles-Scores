@@ -1,0 +1,44 @@
+/* jumbotron */
+.jumbotron {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+.jumbotron button {
+    margin: 10px auto; 
+}
+/* section headers */
+.run-header {
+    padding: 10px; 
+}
+
+.red-score-div {
+background-color: rgb(87, 1, 1);
+margin-right: 10px;
+}
+.blue-score-div {
+background-color: navy;
+}
+.blue-score-div, .red-score-div {
+    border-radius: 10px;
+    color: white; 
+}
+
+.submit-btn {
+    background: linear-gradient(164deg, rgb(224, 224, 224), rgb(102 102 102));
+    border: none; 
+}
+
+
+/* main */
+.red-row {
+    background: linear-gradient(#e29c9c,#e77474);
+}
+.blue-row {
+    background: linear-gradient(#8484f4, #6a6afc); 
+}
+.red-row, .blue-row {
+   padding: 10px;
+   padding-top: 20px;
+   font-weight: bold;
+}
