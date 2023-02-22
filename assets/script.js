@@ -36,9 +36,14 @@ const setLocalScores = () => {
 // retrieve local data to add to page
 getLocalScores = () => {
     let personArray = JSON.parse(localStorage.getItem('playerData')); 
+    // no data on first load
     if (personArray) {
+    // make player total accesible outside loop
+    const playerTotalArray = [];
+    // adds each turn's scores 
     personArray.forEach((person, index) => {
         let playerCol = playerCols[index]; 
+        
         playerCol.querySelector('.player-name').value = person.name;
         playerCol.querySelector('.player-turn-1').value = person.score1;
         playerCol.querySelector('.player-turn-2').value = person.score2;
@@ -46,7 +51,85 @@ getLocalScores = () => {
         playerCol.querySelector('.player-turn-4').value = person.score4;
         playerCol.querySelector('.player-turn-5').value = person.score5;
         playerCol.querySelector('.player-turn-6').value = person.score6;
+
+        // caculate player total, Nan if undefined added
+        let playerTotal = 0; 
+        if (person.score1) {
+            playerTotal += parseInt(person.score1)
+        }
+        if (person.score2) {
+            playerTotal += parseInt(person.score2)
+        }
+        if (person.score3) {
+            playerTotal += parseInt(person.score3)
+        }
+        if (person.score4) {
+            playerTotal += parseInt(person.score4)
+        }
+        if (person.score5) {
+            playerTotal += parseInt(person.score5)
+        }
+        if (person.score6) {
+            playerTotal += parseInt(person.score6)
+        }
+        playerTotalArray.push(playerTotal); 
     });
+
+    // add player totals to page
+    playerTotalArray.forEach((total, index) => {
+        let playerCol = playerCols[index];
+        playerCol.querySelector('.player-total').textContent = total; 
+    })
+
+    // caclulate run totals
+    const runTotalArray = [
+        {red: playerTotalArray[0] + playerTotalArray[1] + playerTotalArray[2],
+        blue: playerTotalArray[3] + playerTotalArray[4] + playerTotalArray[5]},
+        {red: playerTotalArray[6] + playerTotalArray[7] + playerTotalArray[8],
+        blue: playerTotalArray[9] + playerTotalArray[10] + playerTotalArray[11]}, 
+        {red: playerTotalArray[12] + playerTotalArray[13] + playerTotalArray[14], 
+        blue: playerTotalArray[15] + playerTotalArray[16] + playerTotalArray[17]}]
+
+        // calculate/print run scores
+    runTotalArray.forEach((run, index) => {
+        if (run.red > run.blue) {
+            document.querySelector(`#run${index + 1} .red-score`).textContent = 2; 
+            document.querySelector(`#run${index + 1} .blue-score`).textContent = 0; 
+        } else if (run.blue > run.red) {
+            document.querySelector(`#run${index + 1} .red-score`).textContent = 0; 
+            document.querySelector(`#run${index + 1} .blue-score`).textContent = 2;
+        } else {
+            document.querySelector(`#run${index + 1} .red-score`).textContent = 1; 
+            document.querySelector(`#run${index + 1} .blue-score`).textContent = 1;
+        }
+    }); 
+
+    // calculate total team score
+    const redOverall = runTotalArray[0].red + runTotalArray[1].red + runTotalArray[2].red;
+    const blueOverall = runTotalArray[0].blue + runTotalArray[1].blue + runTotalArray[2].blue; 
+
+    // calculate total team points
+    let redPoints = parseInt(document.querySelector('#run1 .red-score').textContent) + 
+    parseInt(document.querySelector('#run2 .red-score').textContent) + 
+    parseInt(document.querySelector('#run3 .red-score').textContent);  
+
+    let bluePoints = parseInt(document.querySelector('#run1 .blue-score').textContent) + 
+    parseInt(document.querySelector('#run2 .blue-score').textContent) + 
+    parseInt(document.querySelector('#run3 .blue-score').textContent); 
+    
+    // add bonus for overall score
+    if (redOverall > blueOverall) {
+        redPoints += 4; 
+    } else if (blueOverall > redOverall) {
+        bluePoints += 4; 
+    } else {
+        redPoints += 2;
+        bluePoints += 2; 
+    }
+
+    // print total scores to top display
+    document.querySelector('.jumbotron .red-score').textContent = redPoints; 
+    document.querySelector('.jumbotron .blue-score').textContent = bluePoints; 
     }; 
 }; 
 getLocalScores(); 
