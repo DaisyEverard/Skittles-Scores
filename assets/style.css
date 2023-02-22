@@ -7,6 +7,14 @@
 .jumbotron button {
     margin: 10px auto; 
 }
+
+.red-name, .blue-name {
+    background-color: transparent;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border: none;
+}
 /* section headers */
 .run-header {
     padding: 10px; 

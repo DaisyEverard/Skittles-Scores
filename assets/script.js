@@ -3,7 +3,35 @@ const submitBtns = $('.submit-btn');
 const playerCols = $('.player-col'); 
 const nameDivs = $('.player-name');
 
-// add data to local storage (overwrites previous)
+// store team names
+const setNamesFunc = () => {
+    const redName = $('input.red-name').val();
+    const blueName = $('input.blue-name').val(); 
+    localStorage.setItem('redName', JSON.stringify(redName));
+    localStorage.setItem('blueName', JSON.stringify(blueName));
+}
+
+// get local names and add to page
+const getNamesFunc = () => {
+  let redName = localStorage.getItem('redName'); 
+  let blueName = localStorage.getItem('blueName');
+
+  if (redName && redName != 'undefined') {
+    redName = JSON.parse(redName); 
+    console.log($('input.red-name').val())
+    $('input.red-name').val(redName)
+    $('h4.red-name').text(redName)
+  }
+  if (blueName && blueName != 'undefined') {
+    blueName = JSON.parse(blueName);
+    $('input.blue-name').val(blueName)
+    $('h4.blue-name').text(blueName)
+  }
+}
+// call get names in load
+getNamesFunc(); 
+
+// add score data to local storage (overwrites previous)
 const setLocalScores = () => {
     let personArray = [];
 
@@ -138,6 +166,8 @@ getLocalScores();
 submitBtns.on('click', () => {
    setLocalScores();
    getLocalScores(); 
+   setNamesFunc();
+   getNamesFunc(); 
 }
 )
 
@@ -146,7 +176,7 @@ const clearBtn = $('.btn-danger')
 clearBtn.on('click', () => {
     localStorage.removeItem('playerData');
     getLocalScores(); 
-    $('input').val(''); 
+    $('input:not(.red-name, .blue-name)').val(''); 
     $('.red-score').text(''); 
     $('.blue-score').text('');
 })
