@@ -140,3 +140,13 @@ submitBtns.on('click', () => {
    getLocalScores(); 
 }
 )
+
+// clear button click listener 
+const clearBtn = $('.btn-danger')
+clearBtn.on('click', () => {
+    localStorage.removeItem('playerData');
+    getLocalScores(); 
+    $('input').val(''); 
+    $('.red-score').text(''); 
+    $('.blue-score').text('');
+})
