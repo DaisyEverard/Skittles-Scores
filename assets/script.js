@@ -119,6 +119,14 @@ getLocalScores = () => {
         blue: playerTotalArray[15] + playerTotalArray[16] + playerTotalArray[17]}]
 
         // calculate/print run scores
+        $('.red-run-1').text(`Run 1: ${runTotalArray[0].red}`); 
+        $('.red-run-2').text(`Run 2: ${runTotalArray[1].red}`); 
+        $('.red-run-3').text(`Run 3: ${runTotalArray[2].red}`); 
+        $('.blue-run-1').text(`Run 1: ${runTotalArray[0].blue}`); 
+        $('.blue-run-2').text(`Run 2: ${runTotalArray[1].blue}`); 
+        $('.blue-run-3').text(`Run 3: ${runTotalArray[2].blue}`); 
+
+        // calculate/print run points
     runTotalArray.forEach((run, index) => {
         if (run.red > run.blue) {
             document.querySelector(`#run${index + 1} .red-score`).textContent = 2; 
@@ -130,6 +138,7 @@ getLocalScores = () => {
             document.querySelector(`#run${index + 1} .red-score`).textContent = 1; 
             document.querySelector(`#run${index + 1} .blue-score`).textContent = 1;
         }
+
     }); 
 
     // calculate total team score
@@ -179,4 +188,5 @@ clearBtn.on('click', () => {
     $('input:not(.red-name, .blue-name)').val(''); 
     $('.red-score').text(''); 
     $('.blue-score').text('');
+    $('h3').text('');
 })
