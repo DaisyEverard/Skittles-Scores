@@ -1,13 +1,18 @@
+/* General */
+body {
+    padding: 10px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, black, grey);
+}
 /* jumbotron */
 .jumbotron {
-    background-color: black;
+    background-color: transparent;
     color: white;
     text-align: center;
 }
 .jumbotron button {
     margin: 10px auto; 
 }
-
 .red-name, .blue-name {
     background-color: transparent;
     color: white;
@@ -15,11 +20,22 @@
     font-size: 1.5rem;
     border: none;
 }
+input.red-name, input.blue-name {
+    font-size: 2rem;
+    word-wrap: break-word;
+}
+.red-score, .blue-score {
+    font-weight: 900;
+}
+.jumbotron .red-score,
+ .jumbotron .blue-score {
+    font-size: 3rem;
+ }
 /* section headers */
 .run-header {
     padding: 10px; 
+    color: white;
 }
-
 .red-score-div {
 background-color: rgb(87, 1, 1);
 margin-right: 10px;
@@ -29,7 +45,6 @@ background-color: navy;
 }
 .blue-score-div, .red-score-div {
     border-radius: 10px;
-    color: white; 
 }
 
 .submit-btn {
@@ -39,11 +54,20 @@ background-color: navy;
 
 
 /* main */
+.player-name {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: large;
+    padding-left: 10px;
+}
 .red-row {
     background: linear-gradient(#e29c9c,#e77474);
+    border-radius: 10px 10px 0 0;
 }
 .blue-row {
     background: linear-gradient(#8484f4, #6a6afc); 
+    border-radius: 0 0 10px 10px;
 }
 .red-row, .blue-row {
    padding: 10px;
