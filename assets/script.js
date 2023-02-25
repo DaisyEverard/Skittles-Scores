@@ -141,9 +141,11 @@ getLocalScores = () => {
 
     }); 
 
-    // calculate total team score
+    // calculate and print total team score
     const redOverall = runTotalArray[0].red + runTotalArray[1].red + runTotalArray[2].red;
     const blueOverall = runTotalArray[0].blue + runTotalArray[1].blue + runTotalArray[2].blue; 
+    $('.red-overall').text(`Overall: ${redOverall}`);
+    $('.blue-overall').text(`Overall: ${blueOverall}`)
 
     // calculate total team points
     let redPoints = parseInt(document.querySelector('#run1 .red-score').textContent) + 
