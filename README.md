@@ -11,11 +11,11 @@ Simple App to keep track of Skittles scores.
 
 ## Table of Contents
 
-[Description](#description)
-[Usage](#usage)
-[Technologies](#technologies)
-[Future Development](#future-development-options)
-[Contacts](#contacts)
+- [Description](#description)
+- [Usage](#usage)
+- [Technologies](#technologies)
+- [Future Development](#future-development-options)
+- [Contacts](#contacts)
 
 ## Description
 
@@ -60,9 +60,9 @@ At the end of the game, there are an extra 4 points for overall highest total. I
 
 ## Contacts
 
-[GitHub: ](https://github.com/DaisyEverard)DaisyEverard
-[LinkedIn: ](https://www.linkedin.com/in/daisy-everard/)daisy-everard
-Email: msdeverard@gmail.com
+- GitHub: [DaisyEverard](https://github.com/DaisyEverard)
+- LinkedIn: [daisy-everard](https://www.linkedin.com/in/daisy-everard/)
+- Email: msdeverard@gmail.com
 
 ## License
 
