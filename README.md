@@ -3,6 +3,10 @@
 
 Simple App to keep track of Skittles scores. 
 
+## Link to Site
+
+https://daisyeverard.github.io/Skittles-Scores/
+
 ## Preview
 
 <p align="center">
